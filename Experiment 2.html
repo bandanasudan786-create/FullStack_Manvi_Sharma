@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CareerBridge Job Portal – Find your next opportunity.">
+  <meta name="author" content="Manvi">
+  <title>CareerBridge | Job Portal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fdfaf6;
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ======== HEADER ======== */
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #008080;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #444;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #008080;
+    }
+
+    /* ======== HERO ======== */
+    .hero {
+      background: linear-gradient(to right, #fff8ec, #f3ede4);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #008080;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #006666;
+    }
+
+    /* ======== JOB CARDS ======== */
+    .jobs {
+      padding: 50px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      background-color: #fff;
+    }
+
+    .job-card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-card h3 {
+      color: #008080;
+      margin-bottom: 10px;
+    }
+
+    /* ======== FORM SECTION ======== */
+    .apply-section {
+      background-color: #f9f9f9;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 700px;
+      border: 3px solid #b7e1dd;
+    }
+
+    form h2 {
+      text-align: center;
+      color: #008080;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #008080;
+      padding-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 15px;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 5px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #006666;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      background-color: #f8fbfa;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #008080;
+      box-shadow: 0 0 8px rgba(0, 128, 128, 0.3);
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    fieldset {
+      border: 2px dashed #b7e1dd;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px 0;
+      background-color: #effaf9;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #008080;
+    }
+
+    input[type="submit"], input[type="reset"] {
+      width: 48%;
+      padding: 10px;
+      font-weight: 600;
+      background-color: #008080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover, input[type="reset"]:hover {
+      background-color: #006666;
+      transform: scale(1.03);
+    }
+
+    /* ======== MULTIMEDIA ======== */
+    .media {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    .media h2 {
+      color: #008080;
+      margin-bottom: 10px;
+    }
+
+    audio, iframe, video {
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+    }
+
+    /* ======== FOOTER ======== */
+    footer {
+      background-color: #006666;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ffd166;
+    }
+
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 10px; }
+      form { width: 95%; }
+      td { display: block; width: 100%; }
+      input[type="submit"], input[type="reset"] { width: 100%; margin-bottom: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">CareerBridge</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#apply">Apply</a>
+      <a href="#media">Career Tips</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h1>Find Your Next Career Move</h1>
+    <p>Discover opportunities that match your skills and ambitions.</p>
+    <a href="#jobs" class="btn">Browse Jobs</a>
+  </section>
+
+  <!-- JOB LISTINGS -->
+  <section id="jobs" class="jobs">
+    <div class="job-card">
+      <h3>Frontend Developer</h3>
+      <p><b>Company:</b> WebWorks</p>
+      <p><b>Location:</b> Remote</p>
+      <p><b>Salary:</b> ₹9 LPA</p>
+      <a href="#apply" class="btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>Data Analyst</h3>
+      <p><b>Company:</b> Insightify</p>
+      <p><b>Location:</b> Bengaluru</p>
+      <p><b>Salary:</b> ₹10 LPA</p>
+      <a href="#apply" class="btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>HR Coordinator</h3>
+      <p><b>Company:</b> PeopleFirst</p>
+      <p><b>Location:</b> Mumbai</p>
+      <p><b>Salary:</b> ₹6 LPA</p>
+      <a href="#apply" class="btn">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section id="apply" class="apply-section">
+    <form action="thankyou.html" method="post">
+      <h2>Job Application Form</h2>
+      <table>
+        <tr>
+          <td>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required />
+          </td>
+          <td>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="10-digit number" required />
+          </td>
+          <td>
+            <label for="position">Position Applied For</label>
+            <select id="position" required>
+              <option value="">--Select--</option>
+              <option>Frontend Developer</option>
+              <option>Data Analyst</option>
+              <option>HR Coordinator</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+      </fieldset>
+
+      <label>Skills</label>
+      <input type="checkbox"> HTML
+      <input type="checkbox"> CSS
+      <input type="checkbox"> Python
+      <input type="checkbox"> Excel
+      <br><br>
+
+      <label>Upload Resume</label>
+      <input type="file" required>
+
+      <label>Message / Cover Letter</label>
+      <textarea placeholder="Write your cover letter..."></textarea>
+
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+        <input type="submit" value="Submit Application">
+        <input type="reset" value="Reset">
+      </div>
+    </form>
+  </section>
+
+  <!-- MULTIMEDIA -->
+  <section id="media" class="media">
+    <h2>Career Resources</h2>
+    <p>Learn from experts and get job interview insights.</p>
+
+    <audio controls>
+      <source src="https://cdn.pixabay.com/download/audio/2022/03/14/audio_6f8b1a3a76.mp3?filename=interview-tips-10477.mp3"  autoplay type="audio/mpeg">
+    </audio>
+    <p><i>Audio: “Interview Tips & Confidence Building”</i></p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/r6zFZQm0hcc?si=ZibL7q92B874NZYr"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+
+    <p><i>Video: “How to Prepare for a Job Interview”</i></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>© 2026 CareerBridge | Designed by Manvi</p>
+    <p>Contact: <a href="mailto:support@careerbridge.com">support@careerbridge.com</a></p>
+  </footer>
+</body>
+</html>
