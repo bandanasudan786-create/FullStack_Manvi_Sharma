@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <br><br>
+    <p id="mp">paragraph before manipulation is---</p>
+    <button id="change">Change</button>
+    <script>
+        document.getElementById('change').addEventListener('click', function() {
+            const pg= document.getElementById('mp');
+            pg.textContent= 'Welcome to DOM manipulation';
+            pg.style.color= 'blue';
+            pg.style.fontSize= '24px';
+        });
+    </script>
+</body>
+</html>
